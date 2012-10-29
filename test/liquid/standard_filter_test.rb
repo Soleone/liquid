@@ -160,6 +160,8 @@ class StandardFiltersTest < Test::Unit::TestCase
     assert_match(/(6\.3)|(6\.(0{13})1)/, Template.parse("{{ '2.1' | times:3 }}").render)
 
     assert_template_result "6", "{{ '2.1' | times:3 | replace: '.','-' | plus:0}}"
+
+    assert_template_result "7.25", "{{ 0.0725 | times:100 }}"
   end
 
   def test_divided_by
